@@ -3,11 +3,11 @@
 from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-
+import os
 from models import db, Hero, Hero_Power, Power
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
@@ -159,4 +159,3 @@ api.add_resource(Hero_Powers,'/hero_powers')
 
 if __name__ == '__main__':
     app.run(port=5505, debug=True)
-    
