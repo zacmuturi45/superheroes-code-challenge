@@ -4,7 +4,7 @@ from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 
-from models import db, Hero, Hero_Power, Power
+from app.models import db, Hero, Hero_Power, Power
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -159,3 +159,4 @@ api.add_resource(Hero_Powers,'/hero_powers')
 
 if __name__ == '__main__':
     app.run(port=5505, debug=True)
+    

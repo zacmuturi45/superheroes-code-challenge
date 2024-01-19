@@ -58,5 +58,5 @@ class Power(db.Model, SerializerMixin):
         assert len(value) >= 20, "Description must be at least 20 characters long"
         return value
 
-    
+
 
